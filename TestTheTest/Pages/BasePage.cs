@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using SeleniumExtras.PageObjects;
 using TestTheTest.Implementation;
 
 namespace TestTheTest.Pages
@@ -8,10 +9,10 @@ namespace TestTheTest.Pages
         public IWebDriver driver;
         public ElementControl elementControl;
 
-        public BasePage(IWebDriver driver)
+        public BasePage(IWebDriver driver, ElementControl elementControl)
         {
             this.driver = driver;
-            elementControl = new ElementControl(driver);
+            this.elementControl = elementControl;
             PageFactory.InitElements(driver, this);
         }
     }

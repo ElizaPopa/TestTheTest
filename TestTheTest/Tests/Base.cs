@@ -1,5 +1,4 @@
-﻿
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TestTheTest.Implementation;
 using TestTheTest.Pages;
@@ -10,8 +9,8 @@ namespace TestTheTest.Tests
     public class Base
     {
         IWebDriver driver;
-        LoginPage loginPage;
-        ElementControl elementControl;
+        public LoginPage loginPage;
+        public ElementControl elementControl;
 
         [SetUp]
         public void Initialize()
