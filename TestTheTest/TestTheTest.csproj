@@ -21,6 +21,9 @@
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="109.0.5414.7400" />
     <PackageReference Include="Selenium.Support" Version="4.7.0" />
     <PackageReference Include="NUnitTestAdapter" Version="2.3.0" />
+    <PackageReference Include="DotNetSeleniumExtras.PageObjects.Core" Version="4.3.0" />
+    <PackageReference Include="Selenium.Essentials" Version="1.0.5.14" />
+    <PackageReference Include="SeleniumExtras.WaitHelpers" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +36,9 @@
     <None Remove="DotNetSeleniumExtras.PageObjects" />
     <None Remove="Tests\" />
     <None Remove="DotNetSeleniumExtras.PageObjects.Core" />
+    <None Remove="Polly" />
+    <None Remove="Selenium.Essentials" />
+    <None Remove="SeleniumExtras.WaitHelpers" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Implementation\" />

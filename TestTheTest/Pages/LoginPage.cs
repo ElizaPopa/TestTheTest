@@ -1,20 +1,35 @@
 ﻿using OpenQA.Selenium;
+using SeleniumExtras.PageObjects;
+using TestTheTest.Implementation;
 
 namespace TestTheTest.Pages
 {
-    public class LoginPage : BasePage
+    
+    public class LoginPage
     {
-        IWebElement usernameInput = driver.FindElement(By.XPath("//input[@name='username']"));
-        IWebElement passwordInput = driver.FindElement(By.XPath("//input[@name='password']"));
-        IWebElement loginButton = driver.FindElement(By.XPath("//button[@type='submit']"));
 
-        public LoginPage(IWebDriver driver) => base(driver);
+        private IWebDriver driver;
+        ElementControl elementControl;
 
-        public void LoginWithCredentials(string username, string password)
+        [FindsBy(How = How.XPath, Using = "//input[@name='username']")]
+        private IWebElement UsernameInput { get; set; }
+        [FindsBy(How = How.XPath, Using = "//input[@name='password']")]
+        private IWebElement PasswordInput { get; set; }
+        [FindsBy(How = How.XPath, Using = "//button[@type='submit']")]
+        private IWebElement LoginButton { get; set; }
+
+        public LoginPage(IWebDriver driver)
         {
-            elementControl.SetText(usernameInput, username);
-            elementControl.SetText(passwordInput, password);
-            elementControl.ClickElement(loginButton);
+            this.driver = driver;
+            elementControl = new ElementControl(driver);
+            PageFactory.InitElements(driver, this);
+        }
+
+        public void Login(string username, string password)
+        {
+            elementControl.SetText(UsernameInput, username);
+            elementControl.SetText(PasswordInput, password);
+            elementControl.ClickElement(LoginButton);
         }
     }
 }

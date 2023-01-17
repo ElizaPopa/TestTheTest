@@ -17,9 +17,5 @@ namespace TestTheTest.Implementation
         {
             element.SendKeys(text);
         }
-        public void AcceptAlert()
-        {
-            IAlert simpleAlert = driver.SwitchTo().Alert();
-        }
     }
 }

@@ -2,13 +2,14 @@
 using OpenQA.Selenium.Chrome;
 using TestTheTest.Implementation;
 using TestTheTest.Pages;
+using OpenQA.Selenium.Support.UI;
 
 namespace TestTheTest.Tests
 {
 
     public class Base
     {
-        IWebDriver driver;
+        public IWebDriver driver;
         public LoginPage loginPage;
         public ElementControl elementControl;
 
@@ -18,7 +19,8 @@ namespace TestTheTest.Tests
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
             driver.Url = "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login";
-            //Thread.Sleep(5000);
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath("//input[@name='username']")));
             loginPage = new LoginPage(driver);
             elementControl = new ElementControl(driver);
         }

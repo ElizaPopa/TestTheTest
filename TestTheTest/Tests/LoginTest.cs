@@ -1,18 +1,16 @@
-﻿using OpenQA.Selenium;
-
+﻿
 namespace TestTheTest.Tests
 {
-	public class LoginTest : Base {
+	public class LoginTest: Base {
+
+        string actualURL = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
+
 
         [Test]
-        public void LoginWithCorrectCredentials()
+        public void LoginWithTheCorrectCredentials()
         {
-        
-        loginPage.LoginWithCredentials("Admin", "admin123");
-            //string actualURL = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
-            //string expectedURL = 
-            //Assert.Equals(actualURL, expectedURL);
-            //Assert.Pass
+            loginPage.Login("Admin", "admin123");
+            Assert.That(driver.Url, Is.EqualTo(actualURL));
         }
     }
 }
